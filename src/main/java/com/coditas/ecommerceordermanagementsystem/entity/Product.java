@@ -25,6 +25,7 @@ public class Product {
     @Column(name ="quantity")
     private int quantity;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "products",
+    cascade = CascadeType.ALL)
     private List<Order> orders;
 }

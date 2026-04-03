@@ -17,15 +17,9 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public String placeOrder(List<Product> productsList) {
+    public String placeOrder(Order neworder) {
 
-
-//        Customer customer = cus;
-
-//        Order order = new Order();
-//        order.setCustomer(customer);
-
-//        orderRepository.save();
+        orderRepository.save(neworder);
 
         return "Order Placed";
     }

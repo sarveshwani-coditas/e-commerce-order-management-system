@@ -1,5 +1,6 @@
 package com.coditas.ecommerceordermanagementsystem.controller;
 
+import com.coditas.ecommerceordermanagementsystem.entity.Order;
 import com.coditas.ecommerceordermanagementsystem.entity.Product;
 import com.coditas.ecommerceordermanagementsystem.service.OrderService;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,9 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public String orderPlacement(@RequestBody List<Product> productsList)
+    public String orderPlacement(@RequestBody Order newOrder)
     {
-        return orderService.placeOrder(productsList);
+        return orderService.placeOrder(newOrder);
     }
 
     @DeleteMapping("/orders/{id}")
