@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("api")
 public class OrderController {
 
-    OrderService orderService;
+    private OrderService orderService;
 
     public OrderController(OrderService orderService){
         this.orderService= orderService;
@@ -30,6 +30,9 @@ public class OrderController {
         return orderService.deleteOrder(id);
     }
 
-
+    @PostMapping("/payments/{tid}/{amount}")
+    public String makePayment(@PathVariable int tid, @PathVariable int amount){
+        return orderService.paymentGateway(tid, amount);
+    }
 
 }

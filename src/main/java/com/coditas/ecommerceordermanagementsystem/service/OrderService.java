@@ -4,6 +4,7 @@ import com.coditas.ecommerceordermanagementsystem.entity.Order;
 import com.coditas.ecommerceordermanagementsystem.entity.Product;
 import com.coditas.ecommerceordermanagementsystem.repository.OrderRepository;
 
+import com.sun.net.httpserver.Authenticator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +32,22 @@ public class OrderService {
 
         orderRepository.delete(order);
         return "Order cancelled";
+    }
 
+    public String paymentGateway(int transaction_id, int payableAmount){
+//        int transaction_id = 11;
+
+        if(payableAmount <= 0){
+            throw new RuntimeException("Amount Can't be negative or zero!");
+        }
+
+        //Calling external Payment Gateway
+
+        if(transaction_id > 10){
+            return "Success";
+        }
+        else{
+            throw new RuntimeException("Transaction failed");
+        }
     }
 }
